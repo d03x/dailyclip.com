@@ -13,7 +13,6 @@ import { Tooltip } from "react-tooltip";
 import 'react-tooltip/dist/react-tooltip.css'
 export default function Layout({ children }: LayoutProps) {
   const openSidebarToggle = useUiStore((state) => state.isSidebarOpen);
-
   return (
     <div className={cn("layout", openSidebarToggle && "is-sidebar-open")}>
       <ErrorBoundaryProvider fallback={HeaderFallback}>
@@ -29,9 +28,7 @@ export default function Layout({ children }: LayoutProps) {
         <main className="main">{children}</main>
       </ErrorBoundaryProvider>
 
-      <Tooltip className="custom-tooltip" anchorSelect=".with-tooltip"  place="top">
-        DADAN
-      </Tooltip>
+      <Tooltip className="custom-tooltip" anchorSelect=".with-tooltip"  place="top"/>
     </div>
   );
 }

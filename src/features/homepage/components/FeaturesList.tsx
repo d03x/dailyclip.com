@@ -1,29 +1,13 @@
+"use server"
 import Link from "next/link";
-import LoadingListSkeleton from "@/components/LoadingListSkeleton";
-import useFeaturedCategory from "../hooks/useFeaturedCategory";
-import { AlertCircle } from "lucide-react";
-import { useEffect } from "react";
-import { toast } from "react-toastify";
+import { trpc } from "@/trpc/TRPCServer";
 
-const FeaturesList = () => {
-  const { error, data, isLoading } = useFeaturedCategory();
-  useEffect(() => {
-    toast.success("Oke");
-  }, [isLoading]);
-  if (error) {
-    return (
-      <div className="flex items-start gap-3 bg-red-100 text-red-800  border-red-300  p-4">
-        <AlertCircle className="w-5 h-5 mt-0.5 text-red-600" />
-        <div className="flex-1 text-sm font-medium">{error.message}</div>
-      </div>
-    );
-  }
+const FeaturesList = async () => {
+  const featured = await trpc.category.featured({filter:"DADAN"})
   return (
     <div className="flex py-2 items-center shrink-0 overflow-x-auto scroll-none px-2 lg:mx-2 gap-3">
-      {isLoading ? (
-        <LoadingListSkeleton />
-      ) : (
-        data?.categories.map((e, index) => {
+      {
+        featured?.categories.map((e, index) => {
           return (
             <Link
               href={`?featured=${e.slug}`}
@@ -34,7 +18,7 @@ const FeaturesList = () => {
             </Link>
           );
         })
-      )}
+      }
     </div>
   );
 };

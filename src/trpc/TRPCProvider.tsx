@@ -4,7 +4,7 @@ import type { QueryClient } from "@tanstack/react-query";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { httpBatchLink } from "@trpc/client";
 import { useState } from "react";
-import { trpc } from "@/utils/trpc";
+import { api as trpc } from "@/trpc";
 import { makeQueryClient } from "@/trpc/query-client";
 let clientQueryClientSingleton: QueryClient;
 function getQueryClient() {
@@ -24,7 +24,6 @@ export function getUrl() {
   return `${base}/api/trpc`;
 }
 
-
 export function TRPCProvider(
   props: Readonly<{
     children: React.ReactNode;
@@ -42,6 +41,19 @@ export function TRPCProvider(
                 Authorization: "Bearer aoidufweir",
               },
             };
+          },
+          fetch: async (input, init) => {
+            try {
+              const response = await fetch(input, init);
+              if (!response.ok) {
+                console.error(`HTTP error! status: ${response.status}`);
+                console.error("Response:", await response.text());
+              }
+              return response;
+            } catch (error) {
+              console.error("Fetch error:", error);
+              throw error;
+            }
           },
         }),
       ],

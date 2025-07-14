@@ -1,9 +1,9 @@
 import { VideoContentItem } from "@/features/video";
-import { trpc } from "@/utils/trpc";
+import { api } from "@/trpc";
 import { useEffect } from "react";
 
 const Videos = () => {
-  const { data, isLoading } = trpc.video.getRecomendation.useQuery();
+  const { data, isLoading } = api.video.getRecomendation.useQuery();
   useEffect(() => {
     console.log(data, isLoading);
   }, []);

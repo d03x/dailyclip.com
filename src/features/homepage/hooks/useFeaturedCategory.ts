@@ -1,7 +1,7 @@
-import { trpc } from "@/utils/trpc";
+import { api } from "@/trpc";
 
 export default function useFeaturedCategory() {
-  const { data,error, isLoading } = trpc.category.featured.useQuery({
+  const { data,error, isLoading } = api.category.featured.useQuery({
     filter: "WKWKWKW",
   });
 
