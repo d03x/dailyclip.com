@@ -14,13 +14,69 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model ChannelLinks {
+  id        String   @id @default(uuid())
+  title     String
+  link      String
+  channelID String
+  Channels  Channels @relation(fields: [channelID], references: [id])
+
+  @@map("channel_links")
+}
+
+model Channels {
+  id             String         @id @default(uuid())
+  name           String
+  handle         String         @unique
+  banner         String         @default("default_cover.png")
+  avatar         String         @default("default_avatar.png")
+  videoWatermark String?        @map("video_watermark")
+  url            String         @unique
+  description    String
+  country        String?
+  verifiedAt     DateTime?      @map("verified_at")
+  createdAt      DateTime       @map("created_at")
+  contactEmail   String?        @map("contact_email")
+  links          ChannelLinks[]
+  updatedAt      DateTime       @updatedAt
+
+  Users Users[]
+
+  @@map("channels")
+}
+
+model Users {
+  id          String    @id @default(uuid())
+  firstName   String    @map("first_name")
+  lastName    String    @map("last_name")
+  middleName  String    @map("middle_name")
+  email       String    @unique
+  username    String    @unique
+  phoneNumber String    @unique @map("phone_number")
+  password    String
+  createdAt   DateTime
+  updatedAt   DateTime  @updatedAt
+  channel     Channels? @relation(fields: [channelID], references: [id])
+  channelID   String?   @unique
+
+  @@map("users")
+}
+
 model Topics {
   id         String  @id @default(uuid())
   name       String
   icon       String?
   slug       String
   isFeatured Boolean @default(false)
+
+  @@map("topics")
 }
+
 model Tags {
-  id String @id @default(uuid())
+  id         String  @id @default(uuid())
+  name       String
+  slug       String
+  isFeatured Boolean @default(false)
+
+  @@map("tags")
 }
