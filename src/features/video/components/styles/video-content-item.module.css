@@ -1,0 +1,11 @@
+.content{
+    cursor: pointer;
+    .media{
+        overflow: hidden;
+    }
+    .meta{
+        display: flex;
+        align-items: start;
+        
+    }
+}

@@ -1,0 +1,9 @@
+.sidebar {
+  position: sticky;
+  top: var(--header-height);
+  overflow-y: auto;
+  max-height: calc(100vh - var(--header-height));
+}
+.sidebar::-webkit-scrollbar{
+    width: 0;
+}

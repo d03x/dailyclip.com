@@ -1,0 +1,13 @@
+.header {
+  grid-column: 1 / -1;
+  position: sticky;
+  top: 0;
+  min-height: var(--header-height);
+  background-color: white;
+  .header_wrapper{
+    display: flex;
+    gap: 10px;
+    height: 100%;
+    align-items: center;
+  }
+}

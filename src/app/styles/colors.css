@@ -1,0 +1,35 @@
+@theme {
+  /* Backgrounds */
+  --color-background: #ffffff;         /* Latar belakang utama (putih) */
+  --color-secondary: #f9f9f9;       /* Background video grid, dropdowns */
+  --color-navbar: #ffffff;          /* Navbar (putih) */
+  --color-hover: #f2f2f2;           /* Hover pada sidebar/menu */
+  --color-tooltip: #616161;         /* Background tooltip dan popover */
+
+  /* Text */
+  --text-primary: #0f0f0f;       /* Warna teks utama (hampir hitam) */
+  --text-secondary: #606060;     /* Warna teks deskripsi/video meta */
+  --text-muted: #909090;         /* Teks sangat redup */
+  --text-inverted: #ffffff;      /* Teks putih (untuk di atas latar gelap) */
+
+  /* Border and Divider */
+  --color-border: #e5e5e5;       /* Garis pemisah, border input dll */
+
+  /* Buttons & Icons */
+  --icon-color: #606060;         /* Ikon netral */
+  --icon-hover: #0f0f0f;         /* Ikon aktif atau saat hover */
+
+  /* Accents */
+  --color-primary: #ff0000;      /* Aksen utama YouTube (merah khas) */
+  --color-like: #065fd4;         /* Warna tombol like */
+  --color-subscribe: #cc0000;    /* Tombol subscribe (merah gelap) */
+  --color-subscribe-hover: #b20000;
+
+  /* Status */
+  --color-live: #cc0000;
+  --color-premiere: #8822aa;
+
+  /* Scrollbar */
+  --scrollbar-thumb: #aaaaaa;
+  --scrollbar-track: #f1f1f1;
+}

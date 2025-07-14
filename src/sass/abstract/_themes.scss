@@ -1,0 +1,9 @@
+@use "./colors" as *;
+
+:root {
+  --bg-primary: #{$PRIMARY};
+  --bg-navbar: #{$NAVBAR_LIGHT};
+  .dark {
+    --bg-navbar: #{$NAVBAR_DARK};
+  }
+}

@@ -1,0 +1,31 @@
+@import "tailwindcss";
+@import "./colors.css";
+:root {
+  --header-height: 54px;
+  --sidebar-width: 240px;
+  --main-width: calc(max-content - var(--sidebar-width));
+  --main-height: calc(100vh - $HEADER_HEIGHT);
+  --sidebar-width-mini : 80px;
+}
+.scroll-none::-webkit-scrollbar{
+    display: none;
+}
+
+body{
+    font-family: var(--font-roboto);
+}
+@theme {
+    --font-inter:var(--font-inter);
+    --font-roboto:var(--font-roboto);
+    --font-lato : var(--font-lato);
+}
+/* custom-tooltip: react-tooltip custom style */
+.custom-tooltip {
+  background-color: #ffffff !important; /* gray-800 */
+  color: #000000 !important;            /* gray-50 */
+  padding: 5px 9px !important;
+  border-radius: 8px !important;
+  opacity: 100;
+  font-size: 0.8rem !important;       /* text-sm */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25) !important;
+}

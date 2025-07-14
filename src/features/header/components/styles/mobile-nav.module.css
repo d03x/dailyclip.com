@@ -1,0 +1,7 @@
+.bottom_nav{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    grid-column: 1/ -1;
+    padding: 0.4rem 0px;
+}
